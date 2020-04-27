@@ -123,7 +123,7 @@ func getPropertyName(expr ast.Expr, parser *Parser) (propertyName, error) {
 		return propertyName{SchemaType: "func", ArrayType: ""}, nil
 	}
 
-	return propertyName{}, errors.New("not supported" + fmt.Sprint(expr))
+	return propertyName{}, fmt.Errorf("expr %T not supported", expr)
 }
 
 func getArrayPropertyName(astTypeArrayElt ast.Expr, parser *Parser) propertyName {
